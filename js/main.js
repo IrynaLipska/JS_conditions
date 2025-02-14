@@ -54,3 +54,64 @@ switch (number) {
   default:
     alert("Нou did not enter a number");
 }
+
+// Підрахуй суму всіх чисел в заданому користувачем діапазоні.
+
+let start = Number(prompt("Enter the start of the range"));
+let end = Number(prompt("Enter the end of the range"));
+
+if (start <= end) {
+  let sum = 0;
+
+  for (let i = start; i <= end; i++) {
+    sum += i;
+  }
+
+  alert(`The sum of all numbers in the range is ${sum}.`);
+}
+
+//Запитай у користувача суму покупки і виведи суму до оплати зі знижкою:
+
+// від 200 до 300 - знижка буде 3%;
+// від 300 до 500 - 5%;
+// від 500 і вище - 7%.
+let totalAmount = Number(prompt("Введіть суму покупки:"));
+
+if (totalAmount > 0) {
+  let discount = 0;
+
+  if (totalAmount >= 200 && totalAmount < 300) {
+    discount = 0.03;
+    и;
+  } else if (totalAmount >= 300 && totalAmount < 500) {
+    discount = 0.05;
+  } else if (totalAmount >= 500) {
+    discount = 0.07;
+  }
+
+  let discountAmount = totalAmount * discount;
+  let finalAmount = totalAmount - discountAmount;
+
+  alert(`Ваша знижка: ${discountAmount.toFixed(2)} грн.
+Сума до оплати: ${finalAmount.toFixed(2)} грн.`);
+}
+
+//Запитай у користувача 10 чисел і порахуй, скільки він ввів додатніх, від’ємних і нулів. При цьому також порахуй, скільки з них парних і непарних. Виведи статистику на екран. Враховуй, що достатньо однієї змінної (не 10) для введення чисел користувачем.
+let positive = 0;
+let negative = 0;
+let zero = 0;
+let even = 0;
+let odd = 0;
+
+for (let i = 1; i <= 10; i++) {
+  let number = Number(prompt(`Введіть число ${i} з 10:`));
+
+  if (!isNaN(number)) {
+    if (number > 0) positive++;
+    else if (number < 0) negative++;
+    else zero++;
+
+    if (number % 2 === 0) even++;
+    else odd++;
+  }
+}
